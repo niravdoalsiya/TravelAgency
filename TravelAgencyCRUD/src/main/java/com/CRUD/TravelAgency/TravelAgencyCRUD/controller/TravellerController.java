@@ -1,10 +1,8 @@
 package com.CRUD.TravelAgency.TravelAgencyCRUD.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.support.Repositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.CRUD.TravelAgency.TravelAgencyCRUD.entity.Travellers;
 import com.CRUD.TravelAgency.TravelAgencyCRUD.service.TravellersService;
-import com.TravelAgency.TravelAgency.model.Customers;
 
 import jakarta.validation.Valid;
 
@@ -27,8 +24,8 @@ public class TravellerController {
 	@Autowired
 	private TravellersService service;
 	
-	//post mapping
-		// add traveller by id
+	//postmapping
+	// add traveller
 	
 	@PostMapping("/travellagency")
 	private ResponseEntity<List<Travellers>> addTravellers(@Valid @RequestBody Travellers travellers) {
@@ -36,7 +33,7 @@ public class TravellerController {
 		 return new ResponseEntity <List<Travellers>> (HttpStatus.CREATED);
 	}
 	
-	//get mapping
+	//getmapping
 	// get all traveller 
 	
 	@GetMapping("/travellagency")
@@ -44,7 +41,7 @@ public class TravellerController {
 		return this.service.getAllTravellers();
 	}
 	
-	//get mapping by id 
+	//getmapping by id 
 	// get traveller by id 
 	
 	@GetMapping("/travellagency/{travellerid}")
